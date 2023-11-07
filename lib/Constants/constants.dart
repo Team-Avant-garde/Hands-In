@@ -9,7 +9,14 @@ String congrats = 'assets/AppLottie/congrats.json';
 
 // Colors
  const Color white = Colors.white;
- const Color black = Colors.white;
+ const Color black = Colors.black;
 
 
 // Border Radius
+
+
+
+
+// Obscure Button
+
+bool seeButton = false;

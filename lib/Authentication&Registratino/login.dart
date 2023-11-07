@@ -42,9 +42,39 @@ class _LoginState extends State<Login> {
                     children: [
                       SizedBox(
                         height: 40,
-                        child: TextFormField(
+                        child: 
+                        // Email or Username
+                        TextFormField(
                           decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10.0) ),
+              ),
                             label: Text('Student Email'),
+                            labelStyle: TextStyle(
+                              color: black
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12)
+                            )
+                          ),
+                        ),
+                      ),
+
+                      SizedBox(height: 15,),
+
+                      SizedBox(
+                        height: 40,
+                        child: 
+                        // Email or Username
+                        TextFormField(
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10.0) ),
+              ),
+                            label: Text('Password'),
+                            labelStyle: TextStyle(
+                              color: black
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12)
                             )
