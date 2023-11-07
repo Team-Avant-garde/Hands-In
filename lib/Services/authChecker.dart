@@ -1,5 +1,6 @@
 import 'dart:async';
-
+import 'package:handsin/Constants/constants.dart';
+import 'package:lottie/lottie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -12,14 +13,26 @@ class AuthService extends StatefulWidget {
   State<AuthService> createState() => _AuthServiceState();
 }
 
-class _AuthServiceState extends State<AuthService> {
+class _AuthServiceState extends State<AuthService>  with TickerProviderStateMixin{
+
+  late final AnimationController _controller;
+  
 
    @override
   void initState() {
     super.initState();
     initialization();
+
+   _controller = AnimationController(vsync: this);
+
     // Route in 2s
     Timer(Duration(seconds: 1), route);
+  }
+
+   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
 
@@ -37,6 +50,7 @@ class _AuthServiceState extends State<AuthService> {
            ));
   }
   
+
   
   @override
   Widget build(BuildContext context) {
@@ -46,9 +60,10 @@ class _AuthServiceState extends State<AuthService> {
           data: ThemeData(
             
           ),
-          child: CircularProgressIndicator.adaptive(
-                
-          ),
+          child: Lottie.asset('assets/AppLottie/congrats.json',
+          animate: true,
+          repeat: false
+          )
         )
       ),
     );
