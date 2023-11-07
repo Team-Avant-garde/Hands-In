@@ -68,6 +68,7 @@ flutter:
     - assets/AppLottie/congrats.json
 
     # PNG
+    - assets/AppLogo/hands.png
 
     # JPG
 
