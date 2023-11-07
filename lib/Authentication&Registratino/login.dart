@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:handsin/Authentication&Registratino/register.dart';
 import 'package:handsin/Constants/constants.dart';
 import 'package:lottie/lottie.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -28,6 +30,7 @@ void _toggleObscured() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
@@ -146,9 +149,20 @@ void _toggleObscured() {
                   ),
                 ),
                 SizedBox(height: 20,),
-                Text("Don't have an account? Register", style: TextStyle(
-                  color: grey
-                ),)
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.leftToRight,
+                    child: Register(),
+                  ),
+                );
+                  },
+                  child: Text("Don't have an account? Register", style: TextStyle(
+                    color: grey
+                  ),),
+                )
             ],
           ),
         ),
