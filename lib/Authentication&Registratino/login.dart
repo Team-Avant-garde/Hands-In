@@ -11,6 +11,20 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+    
+final textFieldFocusNode = FocusNode();
+
+// Login Button Bool Variable
+bool loading = false;
+
+void _toggleObscured() {
+    setState(() {
+      seeButton = !seeButton;
+      if (textFieldFocusNode.hasPrimaryFocus) return; // If focus is on text field, dont unfocus
+      textFieldFocusNode.canRequestFocus = false;     // Prevents focus if tap on eye
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +32,7 @@ class _LoginState extends State<Login> {
       body: SafeArea(
         child: Center(
           child: Flex(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             direction: Axis.vertical,
             children: [
               Container(
@@ -35,11 +49,17 @@ class _LoginState extends State<Login> {
                   )
                 ),
 
+                SizedBox(height: 40,),
+
                 // Login Inputs
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal:30.0, vertical: 10),
                   child: Column(
                     children: [
+                 Text('Sign In', style: TextStyle(
+                  fontSize: 30,
+                 ),),
+                 SizedBox(height: 40,),
                       SizedBox(
                         height: 40,
                         child: 
@@ -47,9 +67,10 @@ class _LoginState extends State<Login> {
                         TextFormField(
                           decoration: InputDecoration(
                             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10.0) ),
-              ),
-                            label: Text('Student Email'),
+                            borderRadius: BorderRadius.all(Radius.circular(10.0) ),
+                            ),
+                            contentPadding: EdgeInsets.symmetric(horizontal: 18),
+                            label: Text('Student Email', style: TextStyle(color: grey, fontSize: 15), ),
                             labelStyle: TextStyle(
                               color: black
                             ),
@@ -67,23 +88,67 @@ class _LoginState extends State<Login> {
                         child: 
                         // Email or Username
                         TextFormField(
+                          obscureText: seeButton,
                           decoration: InputDecoration(
                             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10.0) ),
               ),
                             label: Text('Password'),
+                            contentPadding: EdgeInsets.symmetric(horizontal: 18),
                             labelStyle: TextStyle(
                               color: black
                             ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12)
-                            )
+                            ),
+                            suffixIcon: Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
+                              child: GestureDetector(
+                                onTap: _toggleObscured,
+                                child: Icon(
+                                  seeButton
+                                      ? Icons.visibility_off_rounded
+                                      : Icons.visibility_rounded,
+                                  size: 18,
+                                  color: black,
+                                ),
+                              ),
                           ),
                         ),
                       )
+                      ),
+                      SizedBox(height: 30,),
+                      GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            loading = true;
+                          });
+                        },
+                        child: loading ?
+                         Container(
+                          height: 30,
+                          width: 30,
+                          child: CircularProgressIndicator.adaptive(
+                            strokeWidth: 2.7,
+                          )):
+                         Container(
+                          width: 300,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10)
+                          ),
+                          alignment: Alignment.center,
+                          child: Text('Login', style: TextStyle(color: white, fontSize: 17),),
+                        ) 
+                      )
                     ],
                   ),
-                )
+                ),
+                SizedBox(height: 20,),
+                Text("Don't have an account? Register", style: TextStyle(
+                  color: grey
+                ),)
             ],
           ),
         ),

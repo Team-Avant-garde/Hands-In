@@ -10,6 +10,8 @@ String congrats = 'assets/AppLottie/congrats.json';
 // Colors
  const Color white = Colors.white;
  const Color black = Colors.black;
+ const Color grey = Colors.grey;
+ const Color light_grey = Color.fromARGB(255, 209, 209, 209);
 
 
 // Border Radius
@@ -19,4 +21,4 @@ String congrats = 'assets/AppLottie/congrats.json';
 
 // Obscure Button
 
-bool seeButton = false;
+bool seeButton = true;
