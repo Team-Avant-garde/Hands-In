@@ -1,0 +1,4 @@
+#Tue Nov 07 01:14:24 PST 2023
+base.0=C\:\\Users\\USER\\Documents\\Hackathon\\handsin\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
