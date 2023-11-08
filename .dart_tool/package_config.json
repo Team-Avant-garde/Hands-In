@@ -104,6 +104,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "google_nav_bar",
+      "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dev/google_nav_bar-5.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "html",
       "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dev/html-0.15.4",
       "packageUri": "lib/",
@@ -120,6 +126,12 @@
       "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.7",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "line_icons",
+      "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dev/line_icons-2.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "lints",
@@ -272,7 +284,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-11-08T08:47:38.157908Z",
+  "generated": "2023-11-08T11:06:39.385529Z",
   "generator": "pub",
   "generatorVersion": "3.1.5"
 }

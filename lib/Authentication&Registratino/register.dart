@@ -173,7 +173,7 @@ void _toggleObscured() {
                     Navigator.push(
                   context,
                   PageTransition(
-                    type: PageTransitionType.leftToRightJoined,
+                    type: PageTransitionType.leftToRight,
                     child: Login(),
                   ),
                 );

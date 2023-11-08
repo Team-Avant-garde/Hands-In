@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:handsin/Authentication&Registratino/register.dart';
+import 'package:handsin/Components/bottomNavBar.dart';
+import 'package:handsin/Components/bottomNavBarTwo.dart';
 import 'package:handsin/Constants/constants.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
@@ -121,29 +123,31 @@ void _toggleObscured() {
                       )
                       ),
                       SizedBox(height: 30,),
-                      GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            loading = true;
-                          });
-                        },
-                        child: loading ?
+                         loading ?
                          Container(
                           height: 30,
                           width: 30,
                           child: CircularProgressIndicator.adaptive(
                             strokeWidth: 2.7,
                           )):
-                         Container(
-                          width: 300,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: black,
-                            borderRadius: BorderRadius.circular(10)
-                          ),
-                          alignment: Alignment.center,
-                          child: Text('Login', style: TextStyle(color: white, fontSize: 17),),
-                        ) 
+                         GestureDetector(
+                          onTap: (){
+                          setState(() {
+                           Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => BottomNavigationBarTwo(),
+                          ));
+                          });
+                        },
+                           child: Container(
+                            width: 300,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: black,
+                              borderRadius: BorderRadius.circular(10)
+                            ),
+                            alignment: Alignment.center,
+                            child: Text('Login', style: TextStyle(color: white, fontSize: 17),),
+                                                 ),
                       )
                     ],
                   ),
