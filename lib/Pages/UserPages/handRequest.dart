@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:handsin/Constants/constants.dart';
 
 class HandRequests extends StatefulWidget {
   const HandRequests({super.key});
@@ -10,6 +12,18 @@ class HandRequests extends StatefulWidget {
 class _HandRequestsState extends State<HandRequests> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: white,
+        title: 
+        Text('Requests', 
+            style: TextStyle(
+              color: black,
+              fontSize: 17
+        ),),
+        centerTitle: true,
+      ),
+    );
   }
 }

@@ -7,7 +7,7 @@ class BottomNavigationBarTwo extends StatefulWidget {
   const BottomNavigationBarTwo({Key? key}) : super(key: key);
 
   @override
-  _BottomNavigationBarTwoState createState() =>
+   _BottomNavigationBarTwoState createState() =>
       _BottomNavigationBarTwoState();
 }
 
@@ -34,9 +34,18 @@ class _BottomNavigationBarTwoState extends State {
         onTap: (index) => _changeTab(index),
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.black,
-        items: [
-          BottomNavigationBarItem(icon: Icon(LineIcons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(LineIcons.paperHand), label: "Requests"),
+        elevation: 0,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(LineIcons.home), 
+            label: "Home",
+            activeIcon: Icon(Icons.home)
+            ),
+          BottomNavigationBarItem(
+            icon: Icon(LineIcons.paperHand),
+            label: "Requests",
+            activeIcon: Icon(Icons.back_hand, size: 24,)
+            ),
           // BottomNavigationBarItem(
           //     icon: Icon(Icons.grid_3x3_outlined), label: "Product"),
         ],

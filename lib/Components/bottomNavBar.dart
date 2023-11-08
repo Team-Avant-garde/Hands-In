@@ -19,11 +19,18 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
         )
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            
-          ]
-          )
+        bottomNavigationBar: GNav(
+          padding: EdgeInsets.symmetric(horizontal: 70, vertical: 20),
+          tabs: [
+            GButton(
+              // style: GnavStyle.oldSchool,
+              icon: LineIcons.home,
+              haptic: true,
+              // text: 'Home',
+              ),
+            GButton(icon: LineIcons.paperHand)
+          ],
+        ),
     );
   }
 }
