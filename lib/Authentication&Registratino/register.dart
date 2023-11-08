@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:handsin/Authentication&Registratino/login.dart';
+import 'package:handsin/Authentication&Registratino/otp.dart';
 import 'package:handsin/Constants/constants.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
@@ -131,30 +132,38 @@ void _toggleObscured() {
                       )
                       ),
                       SizedBox(height: 30,),
-                      GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            loading = true;
-                          });
-                        },
-                        child: loading ?
+                       
+                        loading ?
                          Container(
                           height: 30,
                           width: 30,
                           child: CircularProgressIndicator.adaptive(
                             strokeWidth: 2.7,
                           )):
-                         Container(
-                          width: 300,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: black,
-                            borderRadius: BorderRadius.circular(10)
-                          ),
-                          alignment: Alignment.center,
-                          child: Text('Submit', style: TextStyle(color: white, fontSize: 17),),
-                        ) 
-                      )
+                         GestureDetector(
+                           onTap: (){
+                          setState(() {
+                            loading = true;
+                            Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.rightToLeft,
+                    child:  OTP(),
+                  ),
+                );
+                          });
+                        },
+                           child: Container(
+                            width: 300,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: black,
+                              borderRadius: BorderRadius.circular(10)
+                            ),
+                            alignment: Alignment.center,
+                            child: Text('Submit', style: TextStyle(color: white, fontSize: 17),),
+                                                 ),
+                         ) 
                     ],
                   ),
                 ),
@@ -164,7 +173,7 @@ void _toggleObscured() {
                     Navigator.push(
                   context,
                   PageTransition(
-                    type: PageTransitionType.rightToLeft,
+                    type: PageTransitionType.leftToRightJoined,
                     child: Login(),
                   ),
                 );

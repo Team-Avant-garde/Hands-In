@@ -154,7 +154,7 @@ void _toggleObscured() {
                     Navigator.push(
                   context,
                   PageTransition(
-                    type: PageTransitionType.leftToRight,
+                    type: PageTransitionType.rightToLeft,
                     child: Register(),
                   ),
                 );

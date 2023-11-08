@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:handsin/Constants/constants.dart';
 import 'package:handsin/Provider/themeProvider.dart';
 import 'package:handsin/Services/authChecker.dart';
 import 'package:provider/provider.dart'; // Import Provider package
@@ -13,6 +14,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -22,6 +24,12 @@ class MyApp extends StatelessWidget {
   }
   
 }
+  ThemeData appTheme = ThemeData(
+      primaryColor: black, // Set your primary color
+      secondaryHeaderColor: black,
+      fontFamily: 'Product Sans', // Set your custom font family
+      // You can customize other properties like textTheme, buttonTheme, etc.
+    );
 
 class MaterialAppWrapper extends StatelessWidget {
   @override
@@ -30,7 +38,7 @@ class MaterialAppWrapper extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Hands-In',
-      // theme: themeProvider.getTheme(),
+      theme: appTheme,
       initialRoute: '/',
       routes: {
         '/': (context) => AuthService(),
