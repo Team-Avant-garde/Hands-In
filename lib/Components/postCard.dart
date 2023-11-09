@@ -136,7 +136,8 @@ class _PostCardState extends State<PostCard> {
                   SizedBox(width: 7,),
                   Text('Give a hand')
                 ],
-              )
+              ),
+              
             ],
           )
         ],
