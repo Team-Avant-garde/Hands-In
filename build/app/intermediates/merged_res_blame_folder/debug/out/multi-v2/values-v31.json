@@ -4,14 +4,14 @@
             "outputFile": "com.example.handsin.app-mergeDebugResources-9:/values-v31/values-v31.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\USER\\Documents\\Hackathon\\handsin\\android\\app\\src\\main\\res\\values-v31\\styles.xml",
+                    "source": "C:\\Users\\Pandit\\Documents\\amahack\\android\\app\\src\\main\\res\\values-v31\\styles.xml",
                     "from": {
                         "startLines": "3,18",
                         "startColumns": "4,4",
-                        "startOffsets": "173,1129",
+                        "startOffsets": "176,1147",
                         "endLines": "11,20",
                         "endColumns": "12,12",
-                        "endOffsets": "778,1293"
+                        "endOffsets": "789,1313"
                     },
                     "to": {
                         "startLines": "2,11",
