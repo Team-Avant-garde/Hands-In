@@ -101,7 +101,7 @@ void _toggleObscured() {
                             label: Text('Password'),
                             contentPadding: EdgeInsets.symmetric(horizontal: 18),
                             labelStyle: TextStyle(
-                              color: black
+                              color: grey
                             ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12)

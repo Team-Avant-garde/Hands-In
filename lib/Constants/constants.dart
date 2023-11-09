@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 // App Logo
 String appLogo = 'assets/AppLogo/hands.png';
 
+// User default profile picture
+String defaultUserProfilePicture = 'assets/AppIcons/user.svg';
+
 
 // Lotttie Files
 String congrats = 'assets/AppLottie/congrats.json';
