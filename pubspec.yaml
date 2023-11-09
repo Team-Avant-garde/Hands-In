@@ -43,6 +43,7 @@ dependencies:
   line_icons: ^2.0.3
   flutter_svg: ^2.0.9
   dio: ^5.3.3
+  unicode_emojis: ^0.3.0
 
 dev_dependencies:
   flutter_test:

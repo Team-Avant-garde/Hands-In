@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:handsin/Components/postCard.dart';
 import 'package:handsin/Components/profilePicture.dart';
 import 'package:handsin/Constants/constants.dart';
+import 'package:handsin/Pages/userInterActivity/createPost.dart';
 import 'package:line_icons/line_icons.dart';
 
 class Home extends StatefulWidget {
@@ -17,7 +18,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      // backgroundColor: light_grey,
       appBar: AppBar(
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle(
@@ -35,7 +36,12 @@ class _HomeState extends State<Home> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 5.0),
-            child: IconButton(onPressed: (){},
+            child: IconButton(onPressed: (){
+              Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => CreatePost()),
+        );
+            },
              icon: Icon(LineIcons.plus, color: black, size: 19,)
              ),
           )

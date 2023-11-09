@@ -20,11 +20,12 @@ class _PostCardState extends State<PostCard> {
       // height:  400,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        border: Border.all(
-          width: 1,
-          color: light_grey
-        ),
-        borderRadius: BorderRadius.circular(10)
+        // border: Border.all(
+        //   width: 1,
+        //   // color: light_grey
+        // ),
+        borderRadius: BorderRadius.circular(10),
+        color: white
       ),
       child: Flex(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +52,8 @@ class _PostCardState extends State<PostCard> {
                   SizedBox(width: 10,),
                   Text('User Name',
                   style: TextStyle(
-                    fontWeight: FontWeight.w600
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16
                   ), 
                   ),
                   SizedBox(width: 10,),
@@ -79,7 +81,7 @@ class _PostCardState extends State<PostCard> {
                     onTap: () {
                       
                     },
-                    child: Icon(LineIcons.thumbsUp),
+                    child: Icon(LineIcons.thumbsUp, size: 20,),
                   ),
                   Text('2'),
 
@@ -90,14 +92,14 @@ class _PostCardState extends State<PostCard> {
                     onTap: () {
                       
                     },
-                    child: Icon(LineIcons.thumbsDown),
+                    child: Icon(LineIcons.thumbsDown, size: 20,),
                   ),
                   Text('2'),
                 ],
               )
             ],
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 20,),
           Text('So I am literally not understanding something.'),
           SizedBox(height: 10,),
 
@@ -120,45 +122,53 @@ class _PostCardState extends State<PostCard> {
           // Decision Bar
 
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Row(
-                children: [
+            
                   GestureDetector(
                     child: Container(
-                      width: 30,
+                      // width: 30,
                       height: 30,
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                       decoration: BoxDecoration(
                         
                         color: black,
                         borderRadius: BorderRadius.circular(50)
                       ),
-                      child: Icon(LineIcons.paperHand, color: white, size: 18,),
+                      child: Text('Give a hand 👋', style: TextStyle(color: white),),
                     ),
-                  ),
-                  SizedBox(width: 7,),
-                  Text('Give a hand')
-                ],
-              ),
-              SizedBox(width: 20,),
-              Row(
-                children: [
+                  ),                  
+              SizedBox(width: 10,),
                   GestureDetector(
                     child: Container(
-                      width: 30,
+                      // width: 30,
                       height: 30,
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                       decoration: BoxDecoration(
                         border: Border.all(width: 1),
-                        color: white,
+                        // color: white,
                         borderRadius: BorderRadius.circular(50)
                       ),
-                      child: Icon(LineIcons.handPointingRight, color: black, size: 18,),
+                      child: Text.rich(
+                        TextSpan(
+                          children: [
+                          TextSpan(
+                            text: 'Recommend'
+                          ),
+                          TextSpan(
+                            text: ' '
+                          ),
+                          TextSpan(
+                            text: thinking.emoji
+                          )
+                          ]
+                        )
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 7,),
-                  Text('Recommend')
-                ],
-              )
+                  ),                  
+              
             ],
           )
         ],

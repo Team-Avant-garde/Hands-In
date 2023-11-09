@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unicode_emojis/unicode_emojis.dart';
 
 // App Logo
 String appLogo = 'assets/AppLogo/hands.png';
@@ -25,3 +26,7 @@ String congrats = 'assets/AppLottie/congrats.json';
 // Obscure Button
 
 bool seeButton = true;
+
+
+// Emoji
+final thinking = UnicodeEmojis.search('Thinking').first;

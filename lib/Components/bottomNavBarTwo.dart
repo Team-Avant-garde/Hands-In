@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:handsin/Constants/constants.dart';
 import 'package:handsin/Pages/UserPages/handRequest.dart';
 import 'package:handsin/Pages/UserPages/home.dart';
 import 'package:line_icons/line_icons.dart';
@@ -42,7 +43,7 @@ class _BottomNavigationBarTwoState extends State {
             activeIcon: Icon(Icons.home)
             ),
           BottomNavigationBarItem(
-            icon: Icon(LineIcons.paperHand),
+            icon: Icon(LineIcons.paperHand, color: grey,),
             label: "Requests",
             activeIcon: Icon(Icons.back_hand, size: 24,)
             ),

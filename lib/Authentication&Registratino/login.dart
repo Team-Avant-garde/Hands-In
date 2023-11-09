@@ -1,9 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:handsin/Authentication&Registratino/register.dart';
 import 'package:handsin/Components/bottomNavBar.dart';
 import 'package:handsin/Components/bottomNavBarTwo.dart';
 import 'package:handsin/Constants/constants.dart';
+import 'package:handsin/Pages/UserPages/home.dart';
+import 'package:handsin/Services/apiService.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -28,6 +31,10 @@ void _toggleObscured() {
       textFieldFocusNode.canRequestFocus = false;     // Prevents focus if tap on eye
     });
   }
+
+  // Login input text
+  final email = TextEditingController();
+  final password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +77,7 @@ void _toggleObscured() {
                         child: 
                         // Email or Username
                         TextFormField(
+                          controller: email,
                           decoration: InputDecoration(
                             focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10.0) ),
@@ -93,6 +101,7 @@ void _toggleObscured() {
                         child: 
                         // Email or Username
                         TextFormField(
+                          controller: password,
                           obscureText: seeButton,
                           decoration: InputDecoration(
                             focusedBorder: OutlineInputBorder(
@@ -132,11 +141,7 @@ void _toggleObscured() {
                           )):
                          GestureDetector(
                           onTap: (){
-                          setState(() {
-                           Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => BottomNavigationBarTwo(),
-                          ));
-                          });
+                          login(email.text, password.text);
                         },
                            child: Container(
                             width: 300,
@@ -172,5 +177,45 @@ void _toggleObscured() {
         ),
       )
     );
+  }
+
+  login(String email, String password) async {
+
+    setState(() {
+      loading = true;
+    });
+    try {
+      Response response = await dio.post(
+        loginUri,
+        data: {
+          "email": email,
+          "password": password,
+        },
+      );
+
+      // Check the status code in the response
+      if (response.statusCode == 200) {
+        // Successful response, navigate to the next page (e.g., CongratsPage)
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => Home()),
+        );
+      } else {
+        // Unsuccessful response, handle the error
+        print("Error: ${response.data}");
+        // You can show an error message to the user if needed
+        // For example, you can use a SnackBar:
+        setState(() {
+          loading = false;
+        });
+      }
+    } catch (e) {
+      // Handle the error if there is an exception
+      print("Error: $e");
+      // You can show an error message to the user if needed
+      setState(() {
+        loading = false;
+      });
+    }
   }
 }
