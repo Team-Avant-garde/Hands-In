@@ -83,6 +83,8 @@ class _PostCardState extends State<PostCard> {
                   ),
                   Text('2'),
 
+                  SizedBox(width: 10,),
+
                   // Thumbs down button with counter
                   GestureDetector(
                     onTap: () {
@@ -118,6 +120,7 @@ class _PostCardState extends State<PostCard> {
           // Decision Bar
 
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 children: [
@@ -136,8 +139,7 @@ class _PostCardState extends State<PostCard> {
                   SizedBox(width: 7,),
                   Text('Give a hand')
                 ],
-              ),
-              
+              )
             ],
           )
         ],
