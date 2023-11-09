@@ -138,6 +138,7 @@ class _PostCardState extends State<PostCard> {
                       ),
                       child: Text('Give a hand 👋', style: TextStyle(color: white),),
                     ),
+<<<<<<< HEAD
                   ),                  
               SizedBox(width: 10,),
                   GestureDetector(
@@ -169,6 +170,13 @@ class _PostCardState extends State<PostCard> {
                     ),
                   ),                  
               
+=======
+                  ),
+                  SizedBox(width: 7,),
+                  Text('Give a hand')
+                ],
+              )
+>>>>>>> 3fa6644a9e5f80243acc37424d7a6f00a1b7efc8
             ],
           )
         ],
