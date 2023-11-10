@@ -20,25 +20,26 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-    
-final textFieldFocusNode = FocusNode();
+  final textFieldFocusNode = FocusNode();
 
 // Login Button Bool Variable
-bool loading = false;
+  bool loading = false;
 
-void _toggleObscured() {
+  void _toggleObscured() {
     setState(() {
       seeButton = !seeButton;
-      if (textFieldFocusNode.hasPrimaryFocus) return; // If focus is on text field, dont unfocus
-      textFieldFocusNode.canRequestFocus = false;     // Prevents focus if tap on eye
+      if (textFieldFocusNode.hasPrimaryFocus)
+        return; // If focus is on text field, dont unfocus
+      textFieldFocusNode.canRequestFocus =
+          false; // Prevents focus if tap on eye
     });
   }
 
 // Controllers for Sign Up
-  final username = TextEditingController();  
-  final email = TextEditingController();  
-  final password = TextEditingController();  
-  final confirmPassword = TextEditingController();  
+  final username = TextEditingController();
+  final email = TextEditingController();
+  final password = TextEditingController();
+  final confirmPassword = TextEditingController();
 
   // Error Text State
   String error = "";
@@ -47,181 +48,199 @@ void _toggleObscured() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Center(
-          child: Flex(
-            mainAxisAlignment: MainAxisAlignment.start,
-            direction: Axis.vertical,
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 40),
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  border: Border.all(width: 2, color: Colors.black),
-                  borderRadius: BorderRadius.circular(15)
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.asset(appLogo)
-                  )
-                ),
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.white,
+        body: SafeArea(
+          child: Center(
+            child: Flex(
+              mainAxisAlignment: MainAxisAlignment.start,
+              direction: Axis.vertical,
+              children: [
+                Container(
+                    margin: const EdgeInsets.only(top: 40),
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: Colors.black),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.asset(appLogo))),
 
-                SizedBox(height: 40,),
+                const SizedBox(
+                  height: 40,
+                ),
 
                 // Login Inputs
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:30.0, vertical: 10),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 30.0, vertical: 10),
                   child: Column(
                     children: [
-                 Text('Sign Up', style: TextStyle(
-                  fontSize: 30,
-                 ),),
-                 SizedBox(height: 40,),
+                      const Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
                       SizedBox(
                         height: 40,
-                        child: 
-                        // Email or Username
-                        TextFormField(
+                        child:
+                            // Email or Username
+                            TextFormField(
                           controller: username,
                           decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(10.0) ),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 18),
-                            label: Text('Username', style: TextStyle(color: grey, fontSize: 15), ),
-                            labelStyle: TextStyle(
-                              color: black
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12)
-                            )
-                          ),
+                              focusedBorder: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.0)),
+                              ),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 18),
+                              label: const Text(
+                                'Username',
+                                style: TextStyle(color: grey, fontSize: 15),
+                              ),
+                              labelStyle: const TextStyle(color: black),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12))),
                         ),
                       ),
-                      SizedBox(height: 15,),
+                      const SizedBox(
+                        height: 15,
+                      ),
                       SizedBox(
                         height: 40,
-                        child: 
-                        // Email or Username
-                        TextFormField(
+                        child:
+                            // Email or Username
+                            TextFormField(
                           controller: email,
                           decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(10.0) ),
+                              focusedBorder: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.0)),
+                              ),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 18),
+                              label: const Text(
+                                'Student Email',
+                                style: TextStyle(color: grey, fontSize: 15),
+                              ),
+                              labelStyle: const TextStyle(color: black),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12))),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      SizedBox(
+                          height: 40,
+                          child:
+                              // Password
+                              TextFormField(
+                            controller: password,
+                            obscureText: seeButton,
+                            decoration: InputDecoration(
+                              focusedBorder: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.0)),
+                              ),
+                              label: const Text('Password'),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 18),
+                              labelStyle: const TextStyle(color: black),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12)),
                             ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 18),
-                            label: Text('Student Email', style: TextStyle(color: grey, fontSize: 15), ),
-                            labelStyle: TextStyle(
-                              color: black
+                          )),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      SizedBox(
+                          height: 40,
+                          child:
+                              // Password
+                              TextFormField(
+                            controller: confirmPassword,
+                            obscureText: seeButton,
+                            decoration: InputDecoration(
+                              focusedBorder: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.0)),
+                              ),
+                              label: const Text('Confirm Password'),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 18),
+                              labelStyle: const TextStyle(color: black),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12)),
                             ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12)
+                          )),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      loading
+                          ? Container(
+                              height: 30,
+                              width: 30,
+                              child: const CircularProgressIndicator.adaptive(
+                                strokeWidth: 2.7,
+                              ))
+                          : GestureDetector(
+                              onTap: () {
+                                checkFormInput();
+                              },
+                              child: Container(
+                                width: 300,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                    color: black,
+                                    borderRadius: BorderRadius.circular(10)),
+                                alignment: Alignment.center,
+                                child: const Text(
+                                  'Submit',
+                                  style: TextStyle(color: white, fontSize: 17),
+                                ),
+                              ),
                             )
-                          ),
-                        ),
-                      ),
-
-                      SizedBox(height: 15,),
-
-                      SizedBox(
-                        height: 40,
-                        child: 
-                        // Password
-                        TextFormField(
-                          controller: password,
-                          obscureText: seeButton,
-                          decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10.0) ),
-              ),
-                            label: Text('Password'),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 18),
-                            labelStyle: TextStyle(
-                              color: black
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12)
-                            ),
-                        ),
-                      )
-                      ),
-                      SizedBox(height: 15,),
-                      SizedBox(
-                        height: 40,
-                        child: 
-                        // Password
-                        TextFormField(
-                          controller: confirmPassword,
-                          obscureText: seeButton,
-                          decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10.0) ),
-              ),
-                            label: Text('Confirm Password'),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 18),
-                            labelStyle: TextStyle(
-                              color: black
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12)
-                            ),
-                           
-                        ),
-                      )
-                      ),
-                      SizedBox(height: 30,),
-                       
-                        loading ?
-                         Container(
-                          height: 30,
-                          width: 30,
-                          child: CircularProgressIndicator.adaptive(
-                            strokeWidth: 2.7,
-                          )):
-                         GestureDetector(
-                           onTap: (){
-                          checkFormInput();
-                        },
-                           child: Container(
-                            width: 300,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: black,
-                              borderRadius: BorderRadius.circular(10)
-                            ),
-                            alignment: Alignment.center,
-                            child: Text('Submit', style: TextStyle(color: white, fontSize: 17),),
-                                                 ),
-                         ) 
                     ],
                   ),
                 ),
 
-                SizedBox(height: 20,),
-                hasError ? Text(error, style: TextStyle(color: Colors.red, fontSize: 12),) : Text(''),
-                SizedBox(height: 20,),
+                const SizedBox(
+                  height: 20,
+                ),
+                hasError
+                    ? Text(
+                        error,
+                        style: const TextStyle(color: Colors.red, fontSize: 12),
+                      )
+                    : const Text(''),
+                const SizedBox(
+                  height: 20,
+                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => Login(),
-                          ));
+                      builder: (context) => const Login(),
+                    ));
                   },
-                  child: Text("Already have an account? Sign In", style: TextStyle(
-                    color: grey
-                  ),),
+                  child: const Text(
+                    "Already have an account? Sign In",
+                    style: TextStyle(color: grey),
+                  ),
                 )
-            ],
+              ],
+            ),
           ),
-        ),
-      )
-    );
+        ));
   }
 
 // Register
- void register(String username, String email, String password) async {
+  void register(String username, String email, String password) async {
     if (!mounted) return;
     setState(() {
       loading = true;
@@ -239,27 +258,25 @@ void _toggleObscured() {
       print(response);
 
       setState(() {
-         // Store the response data in the variable
-         var responseData = response.data;
+        // Store the response data in the variable
+        var responseData = response.data;
 
-         // Extract user_id from responseData
-         registerUserId = responseData?["user_id"];
+        // Extract user_id from responseData
+        registerUserId = responseData?["user_id"];
       });
 
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => OTP(),
+          builder: (context) => const OTP(),
         ),
       );
-
-      
     } catch (e) {
       print("Error: $e");
-        setState(() {
-          hasError = true;
-          getErrorOff();
-        });
-        error = 'Invalid student email';
+      setState(() {
+        hasError = true;
+        getErrorOff();
+      });
+      error = 'Invalid student email';
       if (mounted) {
         // Check if the widget is still mounted before calling setState
         setState(() {
@@ -292,9 +309,7 @@ void _toggleObscured() {
   }
 
   Future<void> getErrorOff() async {
-  await Future.delayed(const Duration(seconds: 5));
-  loading = false;
+    await Future.delayed(const Duration(seconds: 5));
+    loading = false;
+  }
 }
-
-}
-

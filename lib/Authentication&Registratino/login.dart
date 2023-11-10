@@ -48,7 +48,7 @@ void _toggleObscured() {
             direction: Axis.vertical,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 40),
+                margin: const EdgeInsets.only(top: 40),
                 width: 100,
                 height: 100,
                 decoration: BoxDecoration(
@@ -61,17 +61,17 @@ void _toggleObscured() {
                   )
                 ),
 
-                SizedBox(height: 40,),
+                const SizedBox(height: 40,),
 
                 // Login Inputs
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal:30.0, vertical: 10),
                   child: Column(
                     children: [
-                 Text('Sign In', style: TextStyle(
+                 const Text('Sign In', style: TextStyle(
                   fontSize: 30,
                  ),),
-                 SizedBox(height: 40,),
+                 const SizedBox(height: 40,),
                       SizedBox(
                         height: 40,
                         child: 
@@ -79,12 +79,12 @@ void _toggleObscured() {
                         TextFormField(
                           controller: email,
                           decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10.0) ),
                             ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 18),
-                            label: Text('Student Email', style: TextStyle(color: grey, fontSize: 15), ),
-                            labelStyle: TextStyle(
+                            contentPadding: const EdgeInsets.symmetric(horizontal: 18),
+                            label: const Text('Student Email', style: TextStyle(color: grey, fontSize: 15), ),
+                            labelStyle: const TextStyle(
                               color: black
                             ),
                             border: OutlineInputBorder(
@@ -94,7 +94,7 @@ void _toggleObscured() {
                         ),
                       ),
 
-                      SizedBox(height: 15,),
+                      const SizedBox(height: 15,),
 
                       SizedBox(
                         height: 40,
@@ -104,12 +104,12 @@ void _toggleObscured() {
                           controller: password,
                           obscureText: seeButton,
                           decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10.0) ),
               ),
-                            label: Text('Password'),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 18),
-                            labelStyle: TextStyle(
+                            label: const Text('Password'),
+                            contentPadding: const EdgeInsets.symmetric(horizontal: 18),
+                            labelStyle: const TextStyle(
                               color: grey
                             ),
                             border: OutlineInputBorder(
@@ -131,12 +131,12 @@ void _toggleObscured() {
                         ),
                       )
                       ),
-                      SizedBox(height: 30,),
+                      const SizedBox(height: 30,),
                          loading ?
                          Container(
                           height: 30,
                           width: 30,
-                          child: CircularProgressIndicator.adaptive(
+                          child: const CircularProgressIndicator.adaptive(
                             strokeWidth: 2.7,
                           )):
                          GestureDetector(
@@ -151,24 +151,24 @@ void _toggleObscured() {
                               borderRadius: BorderRadius.circular(10)
                             ),
                             alignment: Alignment.center,
-                            child: Text('Login', style: TextStyle(color: white, fontSize: 17),),
+                            child: const Text('Login', style: TextStyle(color: white, fontSize: 17),),
                                                  ),
                       )
                     ],
                   ),
                 ),
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
                   context,
                   PageTransition(
                     type: PageTransitionType.rightToLeft,
-                    child: Register(),
+                    child: const Register(),
                   ),
                 );
                   },
-                  child: Text("Don't have an account? Register", style: TextStyle(
+                  child: const Text("Don't have an account? Register", style: TextStyle(
                     color: grey
                   ),),
                 )
@@ -198,7 +198,7 @@ void _toggleObscured() {
         // Successful response, navigate to the next page (e.g., CongratsPage)
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => Home()),
+          MaterialPageRoute(builder: (context) => const Home()),
         );
       } else {
         // Unsuccessful response, handle the error

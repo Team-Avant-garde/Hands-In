@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:handsin/Constants/constants.dart';
+import 'package:handsin/Pages/UserPages/onboarding_screens.dart';
 import 'package:handsin/Provider/themeProvider.dart';
 import 'package:handsin/Services/authChecker.dart';
 import 'package:provider/provider.dart'; // Import Provider package
@@ -41,7 +42,8 @@ class MaterialAppWrapper extends StatelessWidget {
       theme: appTheme,
       initialRoute: '/',
       routes: {
-        '/': (context) => AuthService(),
+        '/onboarding': (context) => const OnBoardingScreen(),
+        '/': (context) => const AuthService(),
       },
     );
   }
