@@ -157,21 +157,16 @@ class _CreatePostState extends State<CreatePost> {
   }
 
   Future <void> createPost() async{
-    try {
       getToken();
+    try {
       Response response =  await dio.post(
         postUri,
         data: {
           "title": title.text,
           "content": body.text,
           "tag": tag.text,
-          "owner": 9
+          "owner": registerUserId
         },
-        options: Options(
-          headers: {
-            "Authorization": "Bearer $userApiToken",
-          },
-        )
       );
       print(response);
     } catch (e) {
@@ -195,5 +190,6 @@ class _CreatePostState extends State<CreatePost> {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   String? action = prefs.getString('jwtToken');
   action = userApiToken; 
+  print("Token: $action");
 }
 }

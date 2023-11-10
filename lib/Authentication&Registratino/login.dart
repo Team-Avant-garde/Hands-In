@@ -212,6 +212,8 @@ void _toggleObscured() {
         var token = responseData?["token"];
         saveTokenToPreferences(token);
 
+        token = userApiToken;
+
       } else {
         // Unsuccessful response, handle the error
         print("Error: ${response.data}");
@@ -231,10 +233,10 @@ void _toggleObscured() {
     }
   }
 
-  // Storing Toekn to Shared Preferences
-  Future<void> saveTokenToPreferences(String token) async {
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-  await prefs.setString('jwtToken', token);
-}
+    // Storing Toekn to Shared Preferences
+    Future<void> saveTokenToPreferences(String token) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('jwtToken', token);
+    }
   
 }

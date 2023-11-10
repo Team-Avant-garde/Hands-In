@@ -15,7 +15,7 @@ String otpuri = "$baseUri/otp/$registeredUserIDTS/verify_otp" + "/";
 
 String loginUri = "$baseUri/login/";
 
-String postUri = "$baseUri/posts/post";
+String postUri = "https://handsin.onrender.com/api/posts/post/";
 
 // // Register
 
