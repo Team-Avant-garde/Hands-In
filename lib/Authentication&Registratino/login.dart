@@ -24,6 +24,10 @@ final textFieldFocusNode = FocusNode();
 // Login Button Bool Variable
 bool loading = false;
 
+
+  // Declare seeButton here
+  bool seeButton = true;
+
 void _toggleObscured() {
     setState(() {
       seeButton = !seeButton;
@@ -144,7 +148,7 @@ void _toggleObscured() {
                           login(email.text, password.text);
                         },
                            child: Container(
-                            width: 300,
+                            width: MediaQuery.of(context).size.width,
                             height: 40,
                             decoration: BoxDecoration(
                               color: black,
@@ -198,7 +202,7 @@ void _toggleObscured() {
         // Successful response, navigate to the next page (e.g., CongratsPage)
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => Home()),
+          MaterialPageRoute(builder: (context) => BottomNavigationBarTwo()),
         );
       } else {
         // Unsuccessful response, handle the error

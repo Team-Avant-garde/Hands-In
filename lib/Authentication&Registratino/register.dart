@@ -186,7 +186,7 @@ void _toggleObscured() {
                           checkFormInput();
                         },
                            child: Container(
-                            width: 300,
+                            width: MediaQuery.of(context).size.width,
                             height: 40,
                             decoration: BoxDecoration(
                               color: black,

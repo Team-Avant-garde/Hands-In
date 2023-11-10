@@ -15,6 +15,8 @@ String otpuri = "$baseUri/otp/$registeredUserIDTS/verify_otp" + "/";
 
 String loginUri = "$baseUri/login/";
 
+String postUri = "$baseUri/posts/post";
+
 // // Register
 
 // void register(String username, String email, String password) async {
