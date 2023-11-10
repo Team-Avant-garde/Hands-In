@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:handsin/Constants/apiConstants.dart';
 import 'package:handsin/Constants/constants.dart';
 import 'package:handsin/Services/apiService.dart';
+import 'package:handsin/Services/getServices.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CreatePost extends StatefulWidget {
   const CreatePost({super.key});
@@ -156,6 +158,7 @@ class _CreatePostState extends State<CreatePost> {
 
   Future <void> createPost() async{
     try {
+      getToken();
       Response response =  await dio.post(
         postUri,
         data: {
@@ -187,4 +190,10 @@ class _CreatePostState extends State<CreatePost> {
       });
     }
   }
+
+  Future<void> getToken() async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? action = prefs.getString('jwtToken');
+  action = userApiToken; 
+}
 }
