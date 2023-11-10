@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:handsin/Authentication&Registratino/login.dart';
 import 'package:handsin/Constants/constants.dart';
+import 'package:handsin/Pages/userInterActivity/profilePaage.dart';
 
 class ProfilePicture extends StatefulWidget {
   const ProfilePicture({super.key});
@@ -13,6 +16,12 @@ class _ProfilePictureState extends State<ProfilePicture> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                   );
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical:10.0),
         child: Container(

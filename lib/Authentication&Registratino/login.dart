@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:handsin/Authentication&Registratino/register.dart';
 import 'package:handsin/Components/bottomNavBar.dart';
 import 'package:handsin/Components/bottomNavBarTwo.dart';
+import 'package:handsin/Constants/apiConstants.dart';
 import 'package:handsin/Constants/constants.dart';
 import 'package:handsin/Pages/UserPages/home.dart';
 import 'package:handsin/Services/apiService.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:page_transition/page_transition.dart';
 
 class Login extends StatefulWidget {
@@ -204,6 +206,16 @@ void _toggleObscured() {
           context,
           MaterialPageRoute(builder: (context) => BottomNavigationBarTwo()),
         );
+
+        var responseData = response.data;
+
+        var token = responseData?["token"];
+        saveTokenToPreferences(token);
+
+        setState(() {
+          userApiToken = token;
+        });
+
       } else {
         // Unsuccessful response, handle the error
         print("Error: ${response.data}");
@@ -222,4 +234,10 @@ void _toggleObscured() {
       });
     }
   }
+
+  // Storing Toekn to Shared Preferences
+  Future<void> saveTokenToPreferences(String token) async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setString('jwtToken', token);
+}
 }

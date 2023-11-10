@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:handsin/Constants/apiConstants.dart';
 import 'package:handsin/Constants/constants.dart';
 import 'package:handsin/Services/apiService.dart';
 
@@ -129,7 +130,7 @@ class _CreatePostState extends State<CreatePost> {
               GestureDetector(
                 onTap: (){
                   // checkPostFormInputs();
-                  createPost(title.text, body.text, tag.text);
+                  createPost();
                 },
                 child: Container(
                   height: 50,
@@ -153,26 +154,32 @@ class _CreatePostState extends State<CreatePost> {
     );
   }
 
-  Future <void> createPost(String text, String body, String tag) async{
+  Future <void> createPost() async{
     try {
       Response response =  await dio.post(
         postUri,
         data: {
-          "title": title,
-          "content": body,
-          "tag": tag,
-          "owner": registeredUserIDTS.toString()
+          "title": title.text,
+          "content": body.text,
+          "tag": tag.text,
+          "owner": 9
         },
+        options: Options(
+          headers: {
+            "Authorization": "Bearer $userApiToken",
+          },
+        )
       );
       print(response);
     } catch (e) {
       print(e);
+      print(registerUserId);
     }
   }
 
   checkPostFormInputs(){
     if(title.text.isNotEmpty && body.text.isNotEmpty){
-      createPost(title.text.toString(), body.text, tag.text);
+      createPost();
     } else if(title.text.isEmpty && body.text.isEmpty ){
       setState(() {
         hasConcernBool = true;
